@@ -1,0 +1,15 @@
+#version 330
+
+layout(location = 0) in vec2 position;
+layout(location = 1) in vec3 colorInput;
+
+uniform mat4 aspect;
+uniform mat4 ortho;
+
+out vec3 colorPass;
+
+void main()
+{
+	colorPass = colorInput;
+	gl_Position = aspect * ortho * vec4(position, 0.0, 1.0);
+}
